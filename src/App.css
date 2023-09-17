@@ -1,0 +1,15 @@
+/* 默认模式 */
+:root {
+    --background-color: #FFF;
+    --text-color: #000;
+    --button-bg: #007BFF;
+    --button-text: #FFF;
+}
+
+/* 深色模式 */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #FFF;
+    --button-bg: #6200EA;
+    --button-text: #FFF;
+}
