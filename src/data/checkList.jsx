@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-
-let data = [
+// Type: Component Data
+export let data = [
     {
         id: 1,
         name: 'Learn React',
@@ -17,48 +16,6 @@ let data = [
         done: false
     }
 ];
-
-export default function CheckList () {
-
-    return (
-        <ul className="todo-list">
-            {data.map(task => (
-                <Task key={task.id} nameProp={task.name} isDoneProp={task.done}/>
-            ))}
-        </ul>
-    )
-}
-
-function Task ({ nameProp, isDoneProp}) {
-    const [isDone, setIsDone] = useState(isDoneProp);
-    const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState(nameProp);
-
-    return (
-        <li>
-            <input type="checkbox" checked={isDone} onClick={() => setIsDone(!isDone)} />
-            {isEditing 
-                ? <form onSubmit={(e) => {
-                    e.preventDefault();
-                    setIsEditing(false);
-                }}>
-                    <input 
-                        type="text"
-                        value={name} 
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <button type="submit">Save</button>
-                  </form>
-                : <span>{name}</span>
-            }
-            
-            {!isEditing && <button onClick={() => setIsEditing(true)}>Edit</button>}
-            <button onClick={() => {
-                data = data.filter(task => task.name !== name);
-            }}>Delete</button>
-        </li>
-    );
-}
 
 // export default function CheckList({
 //   tasks,
